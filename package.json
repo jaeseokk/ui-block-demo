@@ -1,0 +1,15 @@
+{
+  "name": "ui-block-demo",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "cd demo && npm install",
+    "serve": "http-server ./demo"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}

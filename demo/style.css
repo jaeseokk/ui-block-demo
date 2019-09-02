@@ -1,0 +1,125 @@
+:root {
+  --progress-height: 40px;
+  --progress-width: 300px;
+  --progress-border-size: 15px;
+  --progress-outer-height: calc(
+    var(--progress-height) + var(--progress-border-size) * 2
+  );
+  --progress-outer-width: calc(
+    var(--progress-width) + var(--progress-border-size) * 2
+  );
+}
+
+html,
+body,
+.container {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  overflow: hidden;
+}
+
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: gray;
+  float: left;
+}
+
+.dot.primary {
+  background-color: #ff7c61;
+}
+
+.dot.secondary {
+  background-color: #1affb0;
+}
+
+.dot.tertiary {
+  background-color: #ffd336;
+}
+
+.dot.quaternary {
+  background-color: #ffffff;
+}
+
+.my-input {
+  position: fixed;
+  height: 40px;
+  width: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.my-input input {
+  font-size: 30px;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.progress {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: calc(var(--progress-outer-height));
+  width: calc(var(--progress-outer-width));
+  background: linear-gradient(to right, #2196f3 99.99%, transparent),
+    linear-gradient(to bottom, #2196f3 99.99%, transparent),
+    linear-gradient(to right, #2196f3 99.99%, transparent),
+    linear-gradient(to bottom, #2196f3 99.99%, transparent);
+  background-size: 100% var(--progress-border-size),
+    var(--progress-border-size) 100%, 100% var(--progress-border-size),
+    var(--progress-border-size) 100%;
+  background-repeat: no-repeat;
+  animation: progress 3s linear infinite;
+  background-position: calc(0px - var(--progress-outer-width)) 0px,
+    calc(var(--progress-outer-width) - var(--progress-border-size))
+      calc(0px - var(--progress-outer-height)),
+    var(--progress-outer-width)
+      calc(var(--progress-outer-height) - var(--progress-border-size)),
+    0px var(--progress-outer-height);
+}
+
+@keyframes progress {
+  0% {
+    background-position: calc(0px - var(--progress-outer-width)) 0px,
+      calc(var(--progress-outer-width) - var(--progress-border-size))
+        calc(0px - var(--progress-outer-height)),
+      var(--progress-outer-width)
+        calc(var(--progress-outer-height) - var(--progress-border-size)),
+      0px var(--progress-outer-height);
+  }
+  38% {
+    background-position: 0px 0px,
+      calc(var(--progress-outer-width) - var(--progress-border-size))
+        calc(0px - var(--progress-outer-height)),
+      var(--progress-outer-width)
+        calc(var(--progress-outer-height) - var(--progress-border-size)),
+      0px var(--progress-outer-height);
+  }
+  50% {
+    background-position: 0px 0px,
+      calc(var(--progress-outer-width) - var(--progress-border-size)) 0px,
+      var(--progress-outer-width)
+        calc(var(--progress-outer-height) - var(--progress-border-size)),
+      0px var(--progress-outer-height);
+  }
+  88% {
+    background-position: 0px 0px,
+      calc(var(--progress-outer-width) - var(--progress-border-size)) 0px,
+      0px calc(var(--progress-outer-height) - var(--progress-border-size)),
+      0px var(--progress-outer-height);
+  }
+  100% {
+    background-position: 0px 0px,
+      calc(var(--progress-outer-width) - var(--progress-border-size)) 0px,
+      0px calc(var(--progress-outer-height) - var(--progress-border-size)),
+      0px 0px;
+  }
+}
